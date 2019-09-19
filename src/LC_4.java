@@ -17,13 +17,13 @@ public class LC_4 {
             else
                 return nums1[l1 / 2];
         }
-        int mid=n/2;
-        int[] arr=new int[n];
+        int mid = n / 2;
+        int[] arr = new int[n];
         for (int i = 0; i < l1; i++) {
             arr[i] = nums1[i];
         }
         for (int i = 0; i < l2; i++) {
-            arr[i+l1] = nums2[i];
+            arr[i + l1] = nums2[i];
         }
         if (mid % 2 == 0)
             return (arr[n / 2] + arr[n / 2 - 1]) / 2.0;

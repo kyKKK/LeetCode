@@ -75,4 +75,23 @@ public class LC_19 {
         return pre.next;
     }
 
+    public static void main(String[] args) {
+        LC_19.ListNode head = new LC_19().new ListNode(0);
+        LC_19.ListNode cur=head;
+        for (int i = 1; i < 6; i++) {
+            LC_19.ListNode tmp=new LC_19().new ListNode(i);
+            cur.next=tmp;
+            cur=tmp;
+        }
+        cur.next = null;
+        head=new LC_19().new ListNode(0);
+        head = new LC_19().removeNthFromEnd_2(head, 1);
+        for (; head != null; head = head.next) {
+            if(head.next!=null)
+                System.out.print(head.val+"-->");
+            else
+                System.out.println(head.val);
+        }
+    }
+
 }

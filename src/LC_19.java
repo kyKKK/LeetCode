@@ -20,6 +20,9 @@ public class LC_19 {
         if (n == len) {
             head=head.next;
             return head;
+        } else if (n == 0) {
+            cur.next=null;
+            return head;
         }
         cur = head;
         for (int i = 0; i < len - n - 1; i++) {

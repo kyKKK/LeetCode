@@ -11,7 +11,7 @@ public class MergeSort {
         int r = p + (q - p) / 2;
         merge_internal(arr, p, r);
         merge_internal(arr, r + 1, q);
-        merge_sentry(arr, p, r, q);
+        merge(arr, p, r, q);
     }
 
     public static void merge(int[] arr, int p, int r, int q) {

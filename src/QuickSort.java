@@ -8,6 +8,7 @@ public class QuickSort {
         if (p >= q)
             return;
         int r = partition(arr, p, q);
+        //System.out.println("r index="+r+" value="+arr[r]);
         sort_internal(arr, p, r - 1);
         sort_internal(arr, r + 1, q);
     }
@@ -17,11 +18,15 @@ public class QuickSort {
         int i = p, j = p;
         for (; j < q; j++) {
             if (arr[j] < r) {
-                swap(arr, i, j);
-                i++;
+                if (i == j) {
+                    i++;
+                } else {
+                    swap(arr, i, j);
+                    i++;
+                }
             }
         }
-        swap(arr, i, r);
+        swap(arr, i, q);
         return i;
     }
 

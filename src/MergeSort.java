@@ -19,20 +19,20 @@ public class MergeSort {
         int[] tmp = new int[q - p + 1];
         int i = p, j = r + 1, k = 0;
         while (i <= r && j <= q) {
-            if (arr[i] <= arr[j])
+            if (arr[i] <= arr[j]) {
                 tmp[k++] = arr[i++];
-            else
+            } else {
                 tmp[k++] = arr[j++];
+            }
         }
-        int start = i, end = r;
-        if (j <= q) {
-            start = j;
-            end = q;
+        while (i <= r) {
+            tmp[k++] = arr[i++];
         }
-        while (start <= end)
-            tmp[k++] = arr[start++];
-        for (i = 0; i < k; i++) {
-            arr[p + i] = tmp[i];
+        while (j <= q) {
+            tmp[k++] = arr[j++];
+        }
+        for (int n = 0; n < tmp.length; n++) {
+            arr[p + n] = tmp[n];
         }
     }
 
@@ -69,9 +69,9 @@ public class MergeSort {
     public static void main(String[] args) {
         int arr[] = {1, 3, 2, 5, 1, 3, 5, 7, 8, 3};
         int[] arr2 = {1, 0};
-        merge_sort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        merge_sort(arr2);
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.print(arr2[i] + " ");
         }
     }
 }

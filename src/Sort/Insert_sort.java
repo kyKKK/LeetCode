@@ -1,3 +1,5 @@
+package Sort;
+
 public class Insert_sort {
     public static void insert_sort(int[] arr) {
         int len = arr.length;

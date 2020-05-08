@@ -56,4 +56,49 @@ public class Solution {
         }
         return root;
     }
+
+    //  递归
+    public TreeNode deleteNode_recur(TreeNode root, int key) {
+        if (root == null)
+            return null;
+        else if (key > root.val)
+            root.right = deleteNode_recur(root.right, key);
+        else if (key < root.val)
+            root.left = deleteNode_recur(root.left, key);
+        else {
+            if (root.right != null) {
+                TreeNode successor = successor(root);
+                root.val = successor.val;
+                root.right = deleteNode_recur(root.right, root.val);
+            } else if (root.left != null) {
+                TreeNode predecessor = predecessor(root);
+                root.val = predecessor.val;
+                root.left = deleteNode_recur(root.left, root.val);
+            } else root = null;
+        }
+        return root;
+
+    }
+
+    public TreeNode successor(TreeNode root) {
+        TreeNode p = root;
+        if (root.right != null) {
+            p = root.right;
+            while (null != p.left) {
+                p = p.left;
+            }
+        }
+        return p;
+    }
+
+    public TreeNode predecessor(TreeNode root) {
+        TreeNode p = root;
+        if (p.left != null) {
+            p = p.left;
+            while (null != p.right) {
+                p = p.right;
+            }
+        }
+        return p;
+    }
 }

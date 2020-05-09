@@ -23,7 +23,7 @@ public class BinarySearch {
     }
 
     public static int bs_classic_recursive_internal(int[] arr, int low, int high, int target) {
-        if (low >= high) {
+        if (low > high) {
             return -1;
         }
         int mid = low + (high - low) / 2;
@@ -37,7 +37,7 @@ public class BinarySearch {
 
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 3, 5, 7, 9, 12, 15};
-        System.out.println(bs_classic(arr, 16));
+        int[] arr = new int[]{1, 3, 4, 5, 7, 12, 16, 19};
+        System.out.println(bs_classic_recursive(arr, 19));
     }
 }

@@ -78,7 +78,7 @@ public class Solution {
                 node = node.left;
             }
             node = stack.pop();
-             if (node.val <= min && !firstVisit)
+            if (node.val <= min && !firstVisit)
                 return false;
             min = node.val;
             if (firstVisit)

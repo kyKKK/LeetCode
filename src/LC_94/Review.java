@@ -1,4 +1,4 @@
-package LC_34;
+package LC_94;
 
 import java.util.Deque;
 import java.util.LinkedList;

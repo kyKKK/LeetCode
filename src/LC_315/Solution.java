@@ -5,16 +5,36 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Solution {
+    private int[] nums;
+    private int[] index;
+    private int[] tempIndex;
+
     public List<Integer> countSmaller(int[] nums) {
-        List<Integer> ret = new LinkedList<>();
-        for (int i = 0; i < nums.length - 1; i++) {
-            int count = 0;
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] < nums[i])
-                    count++;
-            }
-            ret.add(count);
+        this.nums = nums;
+        this.index = new int[nums.length];
+        this.tempIndex = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            index[i] = i;
         }
-        return ret;
+    }
+
+    private void internal(int[] nums, int p, int r) {
+        if (p >= r)
+            return;
+        int q = p + ((r - p) >> 2);
+        internal(nums, p, q);
+        internal(nums, q + 1, r);
+        merge(nums, p, q, r);
+    }
+
+    private void merge(int[] nums, int p, int q, int r) {
+        int[] tmp = new int[r - p + 1];
+        int i = p, j = q + 1, k = 0;
+        while (i <= q && j <= r) {
+            if (nums[i] < nums[j]) {
+                tmp[k] = nums[i];
+            }
+        }
+
     }
 }

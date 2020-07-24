@@ -5,12 +5,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Solution {
-    private int[] nums;
+    private int[] ret;
     private int[] index;
     private int[] tempIndex;
 
     public List<Integer> countSmaller(int[] nums) {
-        this.nums = nums;
+        this.ret = new int[nums.length];
         this.index = new int[nums.length];
         this.tempIndex = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
@@ -33,6 +33,10 @@ public class Solution {
         while (i <= q && j <= r) {
             if (nums[i] < nums[j]) {
                 tmp[k] = nums[i];
+                tempIndex[p + k] = index[i];
+                ret[index[i]] += r - j - 1;
+                k++;
+                i++;
             }
         }
 

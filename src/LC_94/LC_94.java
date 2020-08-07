@@ -1,4 +1,4 @@
-package LC_34;
+package LC_94;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 //  34、二叉树的中序遍历
-public class LC_34 {
+public class LC_94 {
     class TreeNode {
         int val;
         TreeNode left;

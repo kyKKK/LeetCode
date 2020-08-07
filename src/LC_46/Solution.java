@@ -54,7 +54,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1};
+        int[] arr = new int[]{1,2};
         backtrack_1(arr,arr.length);
     }
 }

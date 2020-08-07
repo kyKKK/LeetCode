@@ -1,37 +1,29 @@
-import java.io.IOException;
-import java.lang.Thread;
-import java.util.ArrayList;
-import java.util.Collections;
+class test {
+    public static void main(String[] args) {
+        Singleton s = Singleton.getInstance();
+        s.test();
+    }
+}
 
-public class test {
-    private static Object lock = new Object();
+class Singleton {
+    private static Singleton singleton = null;
 
-    private static class A extends Thread {
-        public void run() {
-            synchronized (lock) {
-//                while (!Thread.currentThread().isInterrupted()) {
-//
-//                }
-                System.out.println("exit");
-                lock.notifyAll();
+    private Singleton() {
+
+    }
+
+    public static Singleton getInstance() {
+        if (singleton == null) {
+            synchronized (Singleton.class) {
+                if (singleton == null)
+                    singleton = new Singleton();
             }
         }
-
+        return singleton;
     }
 
-    public static void test() throws InterruptedException {
-        A a = new A();
-        a.start();
-        synchronized (lock) {
-
-            Thread.sleep(1000);
-            //a.interrupt();
-            lock.wait();
-            a.join();
-        }
+    public void test() {
+        System.out.println("test");
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        test();
-    }
 }

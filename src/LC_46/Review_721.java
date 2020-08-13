@@ -14,8 +14,10 @@ public class Review_721 {
     LinkedList<Integer> list = new LinkedList<>();
 
     public void helper(int[] nums) {
-        if (list.size() == nums.length)
+        if (list.size() == nums.length) {
             ret.add(new LinkedList<>(list));
+            return;
+        }
         for (int num : nums) {
             if (list.contains(num))
                 continue;

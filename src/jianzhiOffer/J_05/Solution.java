@@ -1,5 +1,9 @@
 package jianzhiOffer.J_05;
 
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
 public class Solution {
     public String replaceSpace(String s) {
         char[] chars = s.toCharArray();
@@ -10,7 +14,9 @@ public class Solution {
             else
                 sb.append(chars[i]);
         }
+        ReentrantLock
         return sb.toString();
+
     }
 
 }

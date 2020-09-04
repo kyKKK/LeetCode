@@ -14,7 +14,6 @@ public class Solution {
             else
                 sb.append(chars[i]);
         }
-        ReentrantLock
         return sb.toString();
 
     }
